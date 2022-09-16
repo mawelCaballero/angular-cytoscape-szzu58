@@ -1,0 +1,67 @@
+#container{
+  width:1600px;
+  height:500px;
+}
+#dragContainer{
+  width:150px;
+  height:500px;
+  border:solid 1px black;
+  display: block;
+  float: left;
+  margin: 0px;
+}
+.drag-item{
+  width:40px;
+  height:60px;
+}
+
+#resToDrag{
+  background-color:red;
+  vertical-align: top;
+}
+#capToDrag{
+  background-color:blue;
+  vertical-align: middle;
+}
+#indToDrag{
+  background-color: green;
+  vertical-align: bottom;
+}
+#drag-active{
+ background-color:lightgrey;
+  
+}
+
+#draggingS{
+  background-color: grey;
+  
+}
+#cy{
+  width: 500px;
+  height: 500px;
+  border:solid 1px black;
+  display: block;
+  float: left;
+  margin: 0px;
+}
+#rightsidebar{
+  width: 300px;
+  height:500px;
+  border:solid 1px red;
+  display: block;
+  float: left;
+  margin: 0px;
+  background-color:grey; 
+}
+#textbox{
+  height:50%;
+  vertical-align: top;
+}
+#spiceCode{
+  height:50%;
+  vertical-align: bottom;
+  border:solid 1px black;
+}
+span.block {
+    display:block;
+}

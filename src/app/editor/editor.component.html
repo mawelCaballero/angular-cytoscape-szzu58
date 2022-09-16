@@ -1,0 +1,81 @@
+<!--<button id="addNode" (click)="addNode()" >addNode</button>-->
+<form>
+  remove node:<input id="remNode" type="text" [(ngModel)]="remNode" [ngModelOptions]="{standalone:true}"><br>
+</form>
+<button id="removeNode" (click) ="removeNode()">removeNode</button>
+<form>
+  node1:<input id="IDnode1" type="text" [(ngModel)]="value" [ngModelOptions]="{standalone:true}"><br>
+  node2:<input id="IDnode2" type="text" [(ngModel)] = "value1" [ngModelOptions]="{standalone:true}"><br>
+  
+</form>
+<button id="addEdge" (click)="addEdge()">add connection</button>
+<div id="container">
+  <div class="drag-container" #dragContainer id="dragContainer" >
+    <div #Resistor id="resToDrag" class="drag-item"
+    mwlDraggable 
+    dropData="Resistor" 
+    dragActiveClass="drag-active"
+    [ghostDragEnabled]="true"
+    [showOriginalElementWhileDragging] ="true"
+    [ghostElementTemplate] ="draggingS"
+    [dragSnapGrid]="snapping"
+    (dragging)="dragging($event)">
+    
+    </div>
+    <div #Capacitor id="capToDrag" class="drag-item" mwlDraggable 
+    dropData="Capacitor" 
+    dragActiveClass="drag-active"
+    [ghostDragEnabled]="true"
+    [showOriginalElementWhileDragging] ="true"
+    [ghostElementTemplate] ="draggingS"
+    [dragSnapGrid]="snapping"
+    (dragging)="dragging($event)">
+    </div>
+    <div #Inductor id="indToDrag" class="drag-item" mwlDraggable 
+    dropData="Inductor" 
+    dragActiveClass="drag-active"
+    [ghostDragEnabled]="true"
+    [showOriginalElementWhileDragging] ="true"
+    [ghostElementTemplate] ="draggingS"
+    [dragSnapGrid]="snapping"
+    (dragging)="dragging($event)">
+    </div>
+  
+  </div>
+  <div id="cy" (click)="evtListener()"
+  mwlDroppable
+  
+  (drop)="onDrop($event)"
+  dragOverClass="drop-over-active"
+  (dragOver)="dragEnter($event)"
+  (dragLeave) = "dragLeave($event)"
+  
+  ></div>
+  <div id="rightsidebar">
+  <div id="textbox">
+    <span class="block"> {{compModel?.name}} </span>
+    <span class="block"> value: {{compModel?.value}} </span>
+    <span class="block"> Identifier tag: {{compModel?.nodeid}}</span>
+  </div>
+  <div id="spiceCode">
+  <span>Project title</span>
+  <!--<div *ngFor ="edge of graph.edges" >
+    <div *ngIf="">
+      <span> </span>
+    </div>
+  </div>-->
+  <div *ngFor="let node of graph.nodes">
+    
+      <span [attr.id]="node.data.id" > {{node.data.id}} {{node.data.line1}} {{node.data.line2}}  {{node.data.value}}</span>
+    
+  </div>
+  <span>.End</span>
+  </div>
+  </div>
+</div>
+
+<ng-template #draggingS>
+<div>
+
+</div>
+</ng-template>
